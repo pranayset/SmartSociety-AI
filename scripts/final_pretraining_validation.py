@@ -34,11 +34,15 @@ CHAT_CATEGORIES = {"water", "lift", "electricity", "parking", "security", "compl
 
 
 def find_file(folder: Path, stem: str, split: str, suffix: str) -> Path:
-    candidates = [
-        folder / f"{stem}_{split}.{suffix}",
-        folder / f"{split}_{stem}.{suffix}",
-        folder / f"{stem}_{'val' if split == 'validation' else split}.{suffix}",
-    ]
+    # Use a set to avoid duplicate candidates (e.g. train aliasing itself).
+    names = {
+        f"{stem}_{split}.{suffix}",
+        f"{split}_{stem}.{suffix}",
+    }
+    if split == "validation":
+        names.add(f"{stem}_val.{suffix}")
+        names.add(f"val_{stem}.{suffix}")
+    candidates = [folder / name for name in sorted(names)]
     matches = [p for p in candidates if p.is_file()]
     if len(matches) != 1:
         raise FileNotFoundError(
