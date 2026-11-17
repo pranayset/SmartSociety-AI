@@ -1,0 +1,805 @@
+{
+  "project": "SmartSociety-AI",
+  "report_version": "2.0",
+  "generated_at_utc": "2026-11-17T15:48:02.467911+00:00",
+  "data_classification": "Synthetic",
+  "source_directory": "/content/drive/MyDrive/SocietySmart_AI/Datasets/Extracted",
+  "split_directory": "/content/drive/MyDrive/SocietySmart_AI/Datasets/splits_v2",
+  "datasets": {
+    "visitor": {
+      "source_file": "visitor_dataset.csv",
+      "expected_records": 5000,
+      "actual_records": 5000,
+      "columns": [
+        "visitor_id",
+        "entry_time",
+        "exit_time",
+        "visitor_type",
+        "entry_gate",
+        "visit_purpose",
+        "duration_hours",
+        "unusual_activity"
+      ],
+      "source_missing_values": 0,
+      "source_exact_duplicate_rows": 0,
+      "splits": {
+        "train": {
+          "file": "visitor_train.csv",
+          "records": 3500,
+          "columns": 8,
+          "missing_values": 0,
+          "exact_duplicate_rows": 0,
+          "schema_matches_source": true,
+          "record_count_matches_expected": true,
+          "class_balance": {
+            "0": {
+              "count": 3358,
+              "percentage": 95.943
+            },
+            "1": {
+              "count": 142,
+              "percentage": 4.057
+            }
+          }
+        },
+        "validation": {
+          "file": "visitor_validation.csv",
+          "records": 750,
+          "columns": 8,
+          "missing_values": 0,
+          "exact_duplicate_rows": 0,
+          "schema_matches_source": true,
+          "record_count_matches_expected": true,
+          "class_balance": {
+            "0": {
+              "count": 720,
+              "percentage": 96.0
+            },
+            "1": {
+              "count": 30,
+              "percentage": 4.0
+            }
+          }
+        },
+        "test": {
+          "file": "visitor_test.csv",
+          "records": 750,
+          "columns": 8,
+          "missing_values": 0,
+          "exact_duplicate_rows": 0,
+          "schema_matches_source": true,
+          "record_count_matches_expected": true,
+          "class_balance": {
+            "0": {
+              "count": 719,
+              "percentage": 95.867
+            },
+            "1": {
+              "count": 31,
+              "percentage": 4.133
+            }
+          }
+        }
+      },
+      "split_total_records": 5000,
+      "split_count_matches_original": true,
+      "source_partition_exact": true,
+      "identifier_overlap_counts": {
+        "train_validation": 0,
+        "train_test": 0,
+        "validation_test": 0
+      },
+      "leakage_check": {
+        "overlap_counts": {
+          "train_validation": 0,
+          "train_test": 0,
+          "validation_test": 0
+        },
+        "no_exact_row_overlap": true,
+        "no_identifier_overlap": true
+      },
+      "time_order": {
+        "applicable": false
+      },
+      "numerical_validation": {
+        "duration_hours_non_negative": {
+          "passed": true
+        },
+        "exit_time_not_before_entry_time": {
+          "passed": true
+        }
+      }
+    },
+    "parking": {
+      "source_file": "parking_dataset.csv",
+      "expected_records": 5000,
+      "actual_records": 5000,
+      "columns": [
+        "timestamp",
+        "parking_zone",
+        "total_spaces",
+        "occupied_spaces",
+        "available_spaces",
+        "occupancy_rate",
+        "hour",
+        "weekend",
+        "high_occupancy"
+      ],
+      "source_missing_values": 0,
+      "source_exact_duplicate_rows": 0,
+      "splits": {
+        "train": {
+          "file": "parking_train.csv",
+          "records": 3500,
+          "columns": 9,
+          "missing_values": 0,
+          "exact_duplicate_rows": 0,
+          "schema_matches_source": true,
+          "record_count_matches_expected": true,
+          "class_balance": {
+            "0": {
+              "count": 3144,
+              "percentage": 89.829
+            },
+            "1": {
+              "count": 356,
+              "percentage": 10.171
+            }
+          }
+        },
+        "validation": {
+          "file": "parking_validation.csv",
+          "records": 750,
+          "columns": 9,
+          "missing_values": 0,
+          "exact_duplicate_rows": 0,
+          "schema_matches_source": true,
+          "record_count_matches_expected": true,
+          "class_balance": {
+            "0": {
+              "count": 685,
+              "percentage": 91.333
+            },
+            "1": {
+              "count": 65,
+              "percentage": 8.667
+            }
+          }
+        },
+        "test": {
+          "file": "parking_test.csv",
+          "records": 750,
+          "columns": 9,
+          "missing_values": 0,
+          "exact_duplicate_rows": 0,
+          "schema_matches_source": true,
+          "record_count_matches_expected": true,
+          "class_balance": {
+            "0": {
+              "count": 658,
+              "percentage": 87.733
+            },
+            "1": {
+              "count": 92,
+              "percentage": 12.267
+            }
+          }
+        }
+      },
+      "split_total_records": 5000,
+      "split_count_matches_original": true,
+      "source_partition_exact": true,
+      "identifier_overlap_counts": {},
+      "leakage_check": {
+        "overlap_counts": {
+          "train_validation": 0,
+          "train_test": 0,
+          "validation_test": 0
+        },
+        "no_exact_row_overlap": true,
+        "no_identifier_overlap": true
+      },
+      "time_order": {
+        "applicable": true,
+        "train": {
+          "minimum": "2026-08-01T00:17:07",
+          "maximum": "2026-10-02T16:28:06",
+          "valid_timestamps": 3500
+        },
+        "validation": {
+          "minimum": "2026-10-02T18:09:03",
+          "maximum": "2026-10-16T18:56:07",
+          "valid_timestamps": 750
+        },
+        "test": {
+          "minimum": "2026-10-16T18:58:18",
+          "maximum": "2026-10-29T23:54:54",
+          "valid_timestamps": 750
+        },
+        "chronological_order_valid": true
+      },
+      "numerical_validation": {
+        "space_counts_non_negative": {
+          "passed": true
+        },
+        "occupied_plus_available_equals_total": {
+          "passed": true
+        },
+        "occupancy_rate_between_0_and_1": {
+          "passed": true
+        }
+      }
+    },
+    "water": {
+      "source_file": "water_dataset.csv",
+      "expected_records": 3000,
+      "actual_records": 3000,
+      "columns": [
+        "timestamp",
+        "tank_id",
+        "tank_capacity_litres",
+        "tank_level_percent",
+        "water_consumption_litres",
+        "inflow_litres",
+        "leak_anomaly",
+        "low_tank_level"
+      ],
+      "source_missing_values": 0,
+      "source_exact_duplicate_rows": 0,
+      "splits": {
+        "train": {
+          "file": "water_train.csv",
+          "records": 2100,
+          "columns": 8,
+          "missing_values": 0,
+          "exact_duplicate_rows": 0,
+          "schema_matches_source": true,
+          "record_count_matches_expected": true,
+          "class_balance": {
+            "0": {
+              "count": 2036,
+              "percentage": 96.952
+            },
+            "1": {
+              "count": 64,
+              "percentage": 3.048
+            }
+          }
+        },
+        "validation": {
+          "file": "water_validation.csv",
+          "records": 450,
+          "columns": 8,
+          "missing_values": 0,
+          "exact_duplicate_rows": 0,
+          "schema_matches_source": true,
+          "record_count_matches_expected": true,
+          "class_balance": {
+            "0": {
+              "count": 436,
+              "percentage": 96.889
+            },
+            "1": {
+              "count": 14,
+              "percentage": 3.111
+            }
+          }
+        },
+        "test": {
+          "file": "water_test.csv",
+          "records": 450,
+          "columns": 8,
+          "missing_values": 0,
+          "exact_duplicate_rows": 0,
+          "schema_matches_source": true,
+          "record_count_matches_expected": true,
+          "class_balance": {
+            "0": {
+              "count": 429,
+              "percentage": 95.333
+            },
+            "1": {
+              "count": 21,
+              "percentage": 4.667
+            }
+          }
+        }
+      },
+      "split_total_records": 3000,
+      "split_count_matches_original": true,
+      "source_partition_exact": true,
+      "identifier_overlap_counts": {},
+      "leakage_check": {
+        "overlap_counts": {
+          "train_validation": 0,
+          "train_test": 0,
+          "validation_test": 0
+        },
+        "no_exact_row_overlap": true,
+        "no_identifier_overlap": true
+      },
+      "time_order": {
+        "applicable": true,
+        "train": {
+          "minimum": "2026-08-01T01:15:26",
+          "maximum": "2026-10-03T22:09:48",
+          "valid_timestamps": 2100
+        },
+        "validation": {
+          "minimum": "2026-10-03T23:18:50",
+          "maximum": "2026-10-16T17:17:11",
+          "valid_timestamps": 450
+        },
+        "test": {
+          "minimum": "2026-10-16T17:48:13",
+          "maximum": "2026-10-29T23:48:13",
+          "valid_timestamps": 450
+        },
+        "chronological_order_valid": true
+      },
+      "numerical_validation": {
+        "tank_level_between_0_and_100": {
+          "passed": true
+        },
+        "water_values_non_negative": {
+          "passed": true
+        }
+      }
+    },
+    "electricity": {
+      "source_file": "electricity_dataset.csv",
+      "expected_records": 3000,
+      "actual_records": 3000,
+      "columns": [
+        "timestamp",
+        "building_id",
+        "hour",
+        "temperature_c",
+        "occupancy_estimate",
+        "electricity_consumption_kwh",
+        "peak_hour",
+        "energy_anomaly"
+      ],
+      "source_missing_values": 0,
+      "source_exact_duplicate_rows": 0,
+      "splits": {
+        "train": {
+          "file": "electricity_train.csv",
+          "records": 2100,
+          "columns": 8,
+          "missing_values": 0,
+          "exact_duplicate_rows": 0,
+          "schema_matches_source": true,
+          "record_count_matches_expected": true,
+          "class_balance": {
+            "0": {
+              "count": 2031,
+              "percentage": 96.714
+            },
+            "1": {
+              "count": 69,
+              "percentage": 3.286
+            }
+          }
+        },
+        "validation": {
+          "file": "electricity_validation.csv",
+          "records": 450,
+          "columns": 8,
+          "missing_values": 0,
+          "exact_duplicate_rows": 0,
+          "schema_matches_source": true,
+          "record_count_matches_expected": true,
+          "class_balance": {
+            "0": {
+              "count": 432,
+              "percentage": 96.0
+            },
+            "1": {
+              "count": 18,
+              "percentage": 4.0
+            }
+          }
+        },
+        "test": {
+          "file": "electricity_test.csv",
+          "records": 450,
+          "columns": 8,
+          "missing_values": 0,
+          "exact_duplicate_rows": 0,
+          "schema_matches_source": true,
+          "record_count_matches_expected": true,
+          "class_balance": {
+            "0": {
+              "count": 440,
+              "percentage": 97.778
+            },
+            "1": {
+              "count": 10,
+              "percentage": 2.222
+            }
+          }
+        }
+      },
+      "split_total_records": 3000,
+      "split_count_matches_original": true,
+      "source_partition_exact": true,
+      "identifier_overlap_counts": {},
+      "leakage_check": {
+        "overlap_counts": {
+          "train_validation": 0,
+          "train_test": 0,
+          "validation_test": 0
+        },
+        "no_exact_row_overlap": true,
+        "no_identifier_overlap": true
+      },
+      "time_order": {
+        "applicable": true,
+        "train": {
+          "minimum": "2026-08-01T00:07:25",
+          "maximum": "2026-10-02T12:26:35",
+          "valid_timestamps": 2100
+        },
+        "validation": {
+          "minimum": "2026-10-02T14:17:22",
+          "maximum": "2026-10-17T01:59:58",
+          "valid_timestamps": 450
+        },
+        "test": {
+          "minimum": "2026-10-17T02:59:28",
+          "maximum": "2026-10-29T22:15:33",
+          "valid_timestamps": 450
+        },
+        "chronological_order_valid": true
+      },
+      "numerical_validation": {
+        "consumption_non_negative": {
+          "passed": true
+        },
+        "occupancy_non_negative": {
+          "passed": true
+        }
+      }
+    },
+    "maintenance": {
+      "source_file": "maintenance_dataset.csv",
+      "expected_records": 2000,
+      "actual_records": 2000,
+      "columns": [
+        "equipment_id",
+        "equipment_type",
+        "operating_hours",
+        "temperature_c",
+        "vibration_mm_s",
+        "pressure_bar",
+        "fault_within_7_days"
+      ],
+      "source_missing_values": 0,
+      "source_exact_duplicate_rows": 0,
+      "splits": {
+        "train": {
+          "file": "maintenance_train.csv",
+          "records": 1400,
+          "columns": 7,
+          "missing_values": 0,
+          "exact_duplicate_rows": 0,
+          "schema_matches_source": true,
+          "record_count_matches_expected": true,
+          "class_balance": {
+            "0": {
+              "count": 858,
+              "percentage": 61.286
+            },
+            "1": {
+              "count": 542,
+              "percentage": 38.714
+            }
+          }
+        },
+        "validation": {
+          "file": "maintenance_validation.csv",
+          "records": 300,
+          "columns": 7,
+          "missing_values": 0,
+          "exact_duplicate_rows": 0,
+          "schema_matches_source": true,
+          "record_count_matches_expected": true,
+          "class_balance": {
+            "0": {
+              "count": 184,
+              "percentage": 61.333
+            },
+            "1": {
+              "count": 116,
+              "percentage": 38.667
+            }
+          }
+        },
+        "test": {
+          "file": "maintenance_test.csv",
+          "records": 300,
+          "columns": 7,
+          "missing_values": 0,
+          "exact_duplicate_rows": 0,
+          "schema_matches_source": true,
+          "record_count_matches_expected": true,
+          "class_balance": {
+            "0": {
+              "count": 183,
+              "percentage": 61.0
+            },
+            "1": {
+              "count": 117,
+              "percentage": 39.0
+            }
+          }
+        }
+      },
+      "split_total_records": 2000,
+      "split_count_matches_original": true,
+      "source_partition_exact": true,
+      "identifier_overlap_counts": {
+        "train_validation": 0,
+        "train_test": 0,
+        "validation_test": 0
+      },
+      "leakage_check": {
+        "overlap_counts": {
+          "train_validation": 0,
+          "train_test": 0,
+          "validation_test": 0
+        },
+        "no_exact_row_overlap": true,
+        "no_identifier_overlap": true
+      },
+      "time_order": {
+        "applicable": false
+      },
+      "numerical_validation": {
+        "operating_hours_non_negative": {
+          "passed": true
+        },
+        "vibration_and_pressure_non_negative": {
+          "passed": true
+        }
+      }
+    },
+    "complaints": {
+      "source_file": "complaints_dataset.csv",
+      "expected_records": 1000,
+      "actual_records": 1000,
+      "columns": [
+        "complaint_id",
+        "created_at",
+        "category",
+        "description",
+        "priority",
+        "resolution_hours",
+        "status"
+      ],
+      "source_missing_values": 0,
+      "source_exact_duplicate_rows": 0,
+      "splits": {
+        "train": {
+          "file": "complaints_train.csv",
+          "records": 700,
+          "columns": 7,
+          "missing_values": 0,
+          "exact_duplicate_rows": 0,
+          "schema_matches_source": true,
+          "record_count_matches_expected": true,
+          "class_balance": {
+            "Electricity": {
+              "count": 129,
+              "percentage": 18.429
+            },
+            "Lift Breakdown": {
+              "count": 120,
+              "percentage": 17.143
+            },
+            "Housekeeping": {
+              "count": 118,
+              "percentage": 16.857
+            },
+            "Security": {
+              "count": 118,
+              "percentage": 16.857
+            },
+            "Water Leakage": {
+              "count": 110,
+              "percentage": 15.714
+            },
+            "Parking": {
+              "count": 105,
+              "percentage": 15.0
+            }
+          }
+        },
+        "validation": {
+          "file": "complaints_validation.csv",
+          "records": 150,
+          "columns": 7,
+          "missing_values": 0,
+          "exact_duplicate_rows": 0,
+          "schema_matches_source": true,
+          "record_count_matches_expected": true,
+          "class_balance": {
+            "Electricity": {
+              "count": 27,
+              "percentage": 18.0
+            },
+            "Security": {
+              "count": 26,
+              "percentage": 17.333
+            },
+            "Lift Breakdown": {
+              "count": 26,
+              "percentage": 17.333
+            },
+            "Housekeeping": {
+              "count": 25,
+              "percentage": 16.667
+            },
+            "Water Leakage": {
+              "count": 24,
+              "percentage": 16.0
+            },
+            "Parking": {
+              "count": 22,
+              "percentage": 14.667
+            }
+          }
+        },
+        "test": {
+          "file": "complaints_test.csv",
+          "records": 150,
+          "columns": 7,
+          "missing_values": 0,
+          "exact_duplicate_rows": 0,
+          "schema_matches_source": true,
+          "record_count_matches_expected": true,
+          "class_balance": {
+            "Electricity": {
+              "count": 28,
+              "percentage": 18.667
+            },
+            "Lift Breakdown": {
+              "count": 26,
+              "percentage": 17.333
+            },
+            "Security": {
+              "count": 25,
+              "percentage": 16.667
+            },
+            "Housekeeping": {
+              "count": 25,
+              "percentage": 16.667
+            },
+            "Parking": {
+              "count": 23,
+              "percentage": 15.333
+            },
+            "Water Leakage": {
+              "count": 23,
+              "percentage": 15.333
+            }
+          }
+        }
+      },
+      "split_total_records": 1000,
+      "split_count_matches_original": true,
+      "source_partition_exact": true,
+      "identifier_overlap_counts": {
+        "train_validation": 0,
+        "train_test": 0,
+        "validation_test": 0
+      },
+      "leakage_check": {
+        "overlap_counts": {
+          "train_validation": 0,
+          "train_test": 0,
+          "validation_test": 0
+        },
+        "no_exact_row_overlap": true,
+        "no_identifier_overlap": true
+      },
+      "time_order": {
+        "applicable": false
+      },
+      "numerical_validation": {
+        "resolution_hours_non_negative": {
+          "passed": true
+        },
+        "category_non_empty": {
+          "passed": true
+        }
+      }
+    }
+  },
+  "chatbot": {
+    "split_files": {
+      "train": "chatbot_train.jsonl",
+      "validation": "chatbot_validation.jsonl",
+      "test": "chatbot_unseen_test.jsonl"
+    },
+    "total_records": 300,
+    "split_sizes": {
+      "train": {
+        "records": 210,
+        "unique_intents": 42
+      },
+      "validation": {
+        "records": 30,
+        "unique_intents": 6
+      },
+      "test": {
+        "records": 60,
+        "unique_intents": 12
+      }
+    },
+    "category_counts_by_split": {
+      "train": {
+        "complaints": 35,
+        "electricity": 35,
+        "lift": 35,
+        "parking": 35,
+        "security": 35,
+        "water": 35
+      },
+      "validation": {
+        "complaints": 5,
+        "electricity": 5,
+        "lift": 5,
+        "parking": 5,
+        "security": 5,
+        "water": 5
+      },
+      "test": {
+        "complaints": 10,
+        "electricity": 10,
+        "lift": 10,
+        "parking": 10,
+        "security": 10,
+        "water": 10
+      }
+    },
+    "unique_canonical_intents": 60,
+    "intent_overlap": {
+      "train_validation": 0,
+      "train_test": 0,
+      "validation_test": 0
+    },
+    "record_structure_valid": true,
+    "no_intent_leakage": true,
+    "expected_split_sizes": {
+      "train": 210,
+      "validation": 30,
+      "test": 60
+    },
+    "split_sizes_match_expected": true
+  },
+  "overall_checks": {
+    "all_six_source_datasets_validated": true,
+    "all_expected_split_sizes_and_schemas_valid": true,
+    "no_missing_values_or_duplicate_rows": true,
+    "no_exact_row_overlap": true,
+    "source_rows_reconstructed_by_splits": true,
+    "no_identifier_overlap": true,
+    "domain_rules_passed": true,
+    "chatbot_structure_and_intent_isolation_valid": true,
+    "chatbot_split_sizes_valid": true,
+    "chronological_splits_valid": true
+  },
+  "warnings": [
+    "visitor: positive anomaly class is 4.06%; report precision, recall, F1 and PR-AUC, not accuracy alone.",
+    "water: positive anomaly class is 3.30%; report precision, recall, F1 and PR-AUC, not accuracy alone.",
+    "electricity: positive anomaly class is 3.23%; report precision, recall, F1 and PR-AUC, not accuracy alone.",
+    "All records are synthetic and are suitable for educational experimentation only, not real society security, billing, water, electricity or maintenance decisions.",
+    "Parking, water and electricity splits are chronological, but source timestamps were synthetically generated; this is not evidence of real-world forecasting performance.",
+    "The chatbot corpus has 60 canonical intents with repeated paraphrases and category-level answers; evaluate generalization with a separate, untouched challenge set."
+  ],
+  "errors": [],
+  "quality_status": "PASS_WITH_WARNINGS",
+  "publication_note": "Generated from synthetic datasets. PASS_WITH_WARNINGS means programmed structural checks passed; it does not establish model quality or real-world validity."
+}
