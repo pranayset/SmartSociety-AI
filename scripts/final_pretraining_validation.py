@@ -318,6 +318,7 @@ def validate(data_dir: Path, split_dir: Path, output: Path) -> dict:
         "no_identifier_overlap": not any("identifier overlap" in e for e in errors),
         "domain_rules_passed": not any("domain rule failed" in e for e in errors),
         "chatbot_structure_and_intent_isolation_valid": report.get("chatbot", {}).get("record_structure_valid", False) and report.get("chatbot", {}).get("no_intent_leakage", False),
+        "chatbot_split_sizes_valid": report.get("chatbot", {}).get("split_sizes_match_expected", False) and report.get("chatbot", {}).get("total_records") == sum(CHAT_EXPECTED.values()),
         "chronological_splits_valid": not any("not strictly chronological" in e for e in errors),
     }
     report["overall_checks"] = checks
