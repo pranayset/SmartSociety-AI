@@ -151,6 +151,24 @@ def validate(data_dir: Path, split_dir: Path, output: Path) -> dict:
             if total_split != spec["total"]:
                 errors.append(f"{name}: split total {total_split} does not equal source total {spec['total']}")
 
+            # Verify that the split files reconstruct the original source rows,
+            # not merely that their row counts happen to add up.
+            source_hashes = row_hashes(original)
+            combined_hashes = set().union(*(row_hashes(frame) for frame in frames.values()))
+            source_partition_exact = source_hashes == combined_hashes and len(source_hashes) == len(original)
+            if not source_partition_exact:
+                errors.append(f"{name}: split rows do not exactly reconstruct the source dataset")
+
+            # Detect repeated entity IDs across splits even if other feature values differ.
+            id_column = next((col for col in ("visitor_id", "complaint_id", "equipment_id") if col in original.columns), None)
+            id_overlap = {}
+            if id_column:
+                id_sets = {s: set(df[id_column].dropna().astype(str)) for s, df in frames.items()}
+                for a, b in pairs:
+                    id_overlap[f"{a}_{b}"] = len(id_sets[a] & id_sets[b])
+                if any(id_overlap.values()):
+                    errors.append(f"{name}: identifier overlap across splits: {id_overlap}")
+
             time_report = {"applicable": "timestamp" in original.columns}
             if "timestamp" in original.columns:
                 bounds = {}
@@ -211,7 +229,9 @@ def validate(data_dir: Path, split_dir: Path, output: Path) -> dict:
                 "source_exact_duplicate_rows": int(original.duplicated().sum()),
                 "splits": split_detail, "split_total_records": total_split,
                 "split_count_matches_original": total_split == len(original) == spec["total"],
-                "leakage_check": {"overlap_counts": overlap, "no_exact_row_overlap": all(v == 0 for v in overlap.values())},
+                "source_partition_exact": source_partition_exact,
+                "identifier_overlap_counts": id_overlap,
+                "leakage_check": {"overlap_counts": overlap, "no_exact_row_overlap": all(v == 0 for v in overlap.values()), "no_identifier_overlap": all(v == 0 for v in id_overlap.values())},
                 "time_order": time_report, "numerical_validation": numeric,
             }
             split_frames[name] = frames
@@ -290,6 +310,8 @@ def validate(data_dir: Path, split_dir: Path, output: Path) -> dict:
         "all_expected_split_sizes_and_schemas_valid": not any("expected" in e or "schema" in e for e in errors),
         "no_missing_values_or_duplicate_rows": not any("missing" in e or "duplicate" in e for e in errors),
         "no_exact_row_overlap": not any("exact rows overlap" in e for e in errors),
+        "source_rows_reconstructed_by_splits": not any("do not exactly reconstruct" in e for e in errors),
+        "no_identifier_overlap": not any("identifier overlap" in e for e in errors),
         "domain_rules_passed": not any("domain rule failed" in e for e in errors),
         "chatbot_structure_and_intent_isolation_valid": report.get("chatbot", {}).get("record_structure_valid", False) and report.get("chatbot", {}).get("no_intent_leakage", False),
         "chronological_splits_valid": not any("not strictly chronological" in e for e in errors),
