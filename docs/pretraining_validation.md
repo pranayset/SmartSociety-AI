@@ -10,7 +10,7 @@ Default Google Drive paths:
 - Operational splits: `/content/drive/MyDrive/SocietySmart_AI/Datasets/splits_v2`
 - Output report: `/content/drive/MyDrive/SocietySmart_AI/outputs/pretraining_validation_report.json`
 
-Expected CSV split naming is `{dataset}_{split}.csv` (for example, `visitor_train.csv`, `visitor_validation.csv`, `visitor_test.csv`). The validator also accepts `{split}_{dataset}.csv`. Chatbot JSONL uses `chatbot_train.jsonl`, `chatbot_validation.jsonl`, and `chatbot_test.jsonl` (or split-first names).
+Expected CSV split naming is `{dataset}_{split}.csv` (for example, `visitor_train.csv`, `visitor_validation.csv`, `visitor_test.csv`). The validator also accepts `{split}_{dataset}.csv`. Chatbot JSONL uses `chatbot_train.jsonl`, `chatbot_validation.jsonl`, and `chatbot_unseen_test.jsonl` (also accepts `chatbot_test.jsonl` and split-first names). The unseen test file is the grouped-intent holdout and must remain separate and untouched.
 
 ## Run in Google Colab
 
