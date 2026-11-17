@@ -42,6 +42,10 @@ def find_file(folder: Path, stem: str, split: str, suffix: str) -> Path:
     if split == "validation":
         names.add(f"{stem}_val.{suffix}")
         names.add(f"val_{stem}.{suffix}")
+    # The grouped chatbot holdout is deliberately named "unseen_test" to
+    # distinguish it from a conventional random test split.
+    if stem == "chatbot" and split == "test" and suffix == "jsonl":
+        names.add("chatbot_unseen_test.jsonl")
     candidates = [folder / name for name in sorted(names)]
     matches = [p for p in candidates if p.is_file()]
     if len(matches) != 1:
