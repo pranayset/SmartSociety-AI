@@ -1,0 +1,991 @@
+{
+    "project": "SocietySmart AI",
+    "report_version": "1.0",
+    "generated_at_utc": "2026-11-16T17:20:46.988076+00:00",
+    "data_classification": "Synthetic",
+    "source_directory": "data/synthetic/",
+    "split_directory": "data/splits_v2/",
+    "datasets": {
+        "visitor": {
+            "expected_records": 5000,
+            "actual_records": 5000,
+            "column_count": 8,
+            "columns": [
+                "visitor_id",
+                "entry_time",
+                "exit_time",
+                "visitor_type",
+                "entry_gate",
+                "visit_purpose",
+                "duration_hours",
+                "unusual_activity"
+            ],
+            "missing_values": {
+                "visitor_id": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "entry_time": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "exit_time": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "visitor_type": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "entry_gate": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "visit_purpose": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "duration_hours": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "unusual_activity": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                }
+            },
+            "total_missing_values": 0,
+            "exact_duplicate_rows": 0,
+            "class_balance": {
+                "0": {
+                    "count": 4797,
+                    "percentage": 95.94
+                },
+                "1": {
+                    "count": 203,
+                    "percentage": 4.06
+                }
+            },
+            "numerical_validation": {
+                "duration_hours_non_negative": {
+                    "passed": true
+                },
+                "exit_time_not_before_entry_time": {
+                    "passed": true
+                }
+            },
+            "splits": {
+                "train": {
+                    "records": 3500,
+                    "columns": 8,
+                    "missing_values": 0,
+                    "exact_duplicate_rows": 0,
+                    "class_balance": {
+                        "0": {
+                            "count": 3358,
+                            "percentage": 95.943
+                        },
+                        "1": {
+                            "count": 142,
+                            "percentage": 4.057
+                        }
+                    }
+                },
+                "validation": {
+                    "records": 750,
+                    "columns": 8,
+                    "missing_values": 0,
+                    "exact_duplicate_rows": 0,
+                    "class_balance": {
+                        "0": {
+                            "count": 720,
+                            "percentage": 96.0
+                        },
+                        "1": {
+                            "count": 30,
+                            "percentage": 4.0
+                        }
+                    }
+                },
+                "test": {
+                    "records": 750,
+                    "columns": 8,
+                    "missing_values": 0,
+                    "exact_duplicate_rows": 0,
+                    "class_balance": {
+                        "0": {
+                            "count": 719,
+                            "percentage": 95.867
+                        },
+                        "1": {
+                            "count": 31,
+                            "percentage": 4.133
+                        }
+                    }
+                }
+            },
+            "split_total_records": 5000,
+            "split_count_matches_original": true,
+            "leakage_check": {
+                "overlap_counts": {
+                    "train_validation": 0,
+                    "train_test": 0,
+                    "validation_test": 0
+                },
+                "no_exact_row_overlap": true
+            },
+            "time_order": {
+                "applicable": false
+            }
+        },
+        "parking": {
+            "expected_records": 5000,
+            "actual_records": 5000,
+            "column_count": 9,
+            "columns": [
+                "timestamp",
+                "parking_zone",
+                "total_spaces",
+                "occupied_spaces",
+                "available_spaces",
+                "occupancy_rate",
+                "hour",
+                "weekend",
+                "high_occupancy"
+            ],
+            "missing_values": {
+                "timestamp": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "parking_zone": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "total_spaces": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "occupied_spaces": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "available_spaces": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "occupancy_rate": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "hour": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "weekend": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "high_occupancy": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                }
+            },
+            "total_missing_values": 0,
+            "exact_duplicate_rows": 0,
+            "class_balance": {
+                "0": {
+                    "count": 4487,
+                    "percentage": 89.74
+                },
+                "1": {
+                    "count": 513,
+                    "percentage": 10.26
+                }
+            },
+            "numerical_validation": {
+                "total_spaces_between_0_and_300": {
+                    "passed": true
+                },
+                "occupied_spaces_between_0_and_300": {
+                    "passed": true
+                },
+                "available_spaces_between_0_and_300": {
+                    "passed": true
+                },
+                "occupied_plus_available_equals_total": {
+                    "passed": true
+                },
+                "occupancy_rate_between_0_and_1": {
+                    "passed": true
+                }
+            },
+            "splits": {
+                "train": {
+                    "records": 3500,
+                    "columns": 9,
+                    "missing_values": 0,
+                    "exact_duplicate_rows": 0,
+                    "class_balance": {
+                        "0": {
+                            "count": 3144,
+                            "percentage": 89.829
+                        },
+                        "1": {
+                            "count": 356,
+                            "percentage": 10.171
+                        }
+                    }
+                },
+                "validation": {
+                    "records": 750,
+                    "columns": 9,
+                    "missing_values": 0,
+                    "exact_duplicate_rows": 0,
+                    "class_balance": {
+                        "0": {
+                            "count": 685,
+                            "percentage": 91.333
+                        },
+                        "1": {
+                            "count": 65,
+                            "percentage": 8.667
+                        }
+                    }
+                },
+                "test": {
+                    "records": 750,
+                    "columns": 9,
+                    "missing_values": 0,
+                    "exact_duplicate_rows": 0,
+                    "class_balance": {
+                        "0": {
+                            "count": 658,
+                            "percentage": 87.733
+                        },
+                        "1": {
+                            "count": 92,
+                            "percentage": 12.267
+                        }
+                    }
+                }
+            },
+            "split_total_records": 5000,
+            "split_count_matches_original": true,
+            "leakage_check": {
+                "overlap_counts": {
+                    "train_validation": 0,
+                    "train_test": 0,
+                    "validation_test": 0
+                },
+                "no_exact_row_overlap": true
+            },
+            "time_order": {
+                "applicable": true,
+                "train": {
+                    "minimum": "2026-08-01T00:17:07",
+                    "maximum": "2026-10-02T16:28:06",
+                    "valid_timestamps": 3500
+                },
+                "validation": {
+                    "minimum": "2026-10-02T18:09:03",
+                    "maximum": "2026-10-16T18:56:07",
+                    "valid_timestamps": 750
+                },
+                "test": {
+                    "minimum": "2026-10-16T18:58:18",
+                    "maximum": "2026-10-29T23:54:54",
+                    "valid_timestamps": 750
+                },
+                "chronological_order_valid": true
+            }
+        },
+        "water": {
+            "expected_records": 3000,
+            "actual_records": 3000,
+            "column_count": 8,
+            "columns": [
+                "timestamp",
+                "tank_id",
+                "tank_capacity_litres",
+                "tank_level_percent",
+                "water_consumption_litres",
+                "inflow_litres",
+                "leak_anomaly",
+                "low_tank_level"
+            ],
+            "missing_values": {
+                "timestamp": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "tank_id": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "tank_capacity_litres": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "tank_level_percent": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "water_consumption_litres": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "inflow_litres": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "leak_anomaly": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "low_tank_level": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                }
+            },
+            "total_missing_values": 0,
+            "exact_duplicate_rows": 0,
+            "class_balance": {
+                "0": {
+                    "count": 2901,
+                    "percentage": 96.7
+                },
+                "1": {
+                    "count": 99,
+                    "percentage": 3.3
+                }
+            },
+            "numerical_validation": {
+                "tank_level_between_0_and_100": {
+                    "passed": true
+                },
+                "water_consumption_non_negative": {
+                    "passed": true
+                },
+                "water_inflow_non_negative": {
+                    "passed": true
+                },
+                "tank_capacity_positive": {
+                    "passed": true
+                }
+            },
+            "splits": {
+                "train": {
+                    "records": 2100,
+                    "columns": 8,
+                    "missing_values": 0,
+                    "exact_duplicate_rows": 0,
+                    "class_balance": {
+                        "0": {
+                            "count": 2036,
+                            "percentage": 96.952
+                        },
+                        "1": {
+                            "count": 64,
+                            "percentage": 3.048
+                        }
+                    }
+                },
+                "validation": {
+                    "records": 450,
+                    "columns": 8,
+                    "missing_values": 0,
+                    "exact_duplicate_rows": 0,
+                    "class_balance": {
+                        "0": {
+                            "count": 436,
+                            "percentage": 96.889
+                        },
+                        "1": {
+                            "count": 14,
+                            "percentage": 3.111
+                        }
+                    }
+                },
+                "test": {
+                    "records": 450,
+                    "columns": 8,
+                    "missing_values": 0,
+                    "exact_duplicate_rows": 0,
+                    "class_balance": {
+                        "0": {
+                            "count": 429,
+                            "percentage": 95.333
+                        },
+                        "1": {
+                            "count": 21,
+                            "percentage": 4.667
+                        }
+                    }
+                }
+            },
+            "split_total_records": 3000,
+            "split_count_matches_original": true,
+            "leakage_check": {
+                "overlap_counts": {
+                    "train_validation": 0,
+                    "train_test": 0,
+                    "validation_test": 0
+                },
+                "no_exact_row_overlap": true
+            },
+            "time_order": {
+                "applicable": true,
+                "train": {
+                    "minimum": "2026-08-01T01:15:26",
+                    "maximum": "2026-10-03T22:09:48",
+                    "valid_timestamps": 2100
+                },
+                "validation": {
+                    "minimum": "2026-10-03T23:18:50",
+                    "maximum": "2026-10-16T17:17:11",
+                    "valid_timestamps": 450
+                },
+                "test": {
+                    "minimum": "2026-10-16T17:48:13",
+                    "maximum": "2026-10-29T23:48:13",
+                    "valid_timestamps": 450
+                },
+                "chronological_order_valid": true
+            }
+        },
+        "electricity": {
+            "expected_records": 3000,
+            "actual_records": 3000,
+            "column_count": 8,
+            "columns": [
+                "timestamp",
+                "building_id",
+                "hour",
+                "temperature_c",
+                "occupancy_estimate",
+                "electricity_consumption_kwh",
+                "peak_hour",
+                "energy_anomaly"
+            ],
+            "missing_values": {
+                "timestamp": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "building_id": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "hour": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "temperature_c": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "occupancy_estimate": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "electricity_consumption_kwh": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "peak_hour": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "energy_anomaly": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                }
+            },
+            "total_missing_values": 0,
+            "exact_duplicate_rows": 0,
+            "class_balance": {
+                "0": {
+                    "count": 2903,
+                    "percentage": 96.767
+                },
+                "1": {
+                    "count": 97,
+                    "percentage": 3.233
+                }
+            },
+            "numerical_validation": {
+                "electricity_consumption_non_negative": {
+                    "passed": true
+                },
+                "temperature_within_plausibility_bounds": {
+                    "passed": true
+                },
+                "occupancy_estimate_non_negative": {
+                    "passed": true
+                }
+            },
+            "splits": {
+                "train": {
+                    "records": 2100,
+                    "columns": 8,
+                    "missing_values": 0,
+                    "exact_duplicate_rows": 0,
+                    "class_balance": {
+                        "0": {
+                            "count": 2031,
+                            "percentage": 96.714
+                        },
+                        "1": {
+                            "count": 69,
+                            "percentage": 3.286
+                        }
+                    }
+                },
+                "validation": {
+                    "records": 450,
+                    "columns": 8,
+                    "missing_values": 0,
+                    "exact_duplicate_rows": 0,
+                    "class_balance": {
+                        "0": {
+                            "count": 432,
+                            "percentage": 96.0
+                        },
+                        "1": {
+                            "count": 18,
+                            "percentage": 4.0
+                        }
+                    }
+                },
+                "test": {
+                    "records": 450,
+                    "columns": 8,
+                    "missing_values": 0,
+                    "exact_duplicate_rows": 0,
+                    "class_balance": {
+                        "0": {
+                            "count": 440,
+                            "percentage": 97.778
+                        },
+                        "1": {
+                            "count": 10,
+                            "percentage": 2.222
+                        }
+                    }
+                }
+            },
+            "split_total_records": 3000,
+            "split_count_matches_original": true,
+            "leakage_check": {
+                "overlap_counts": {
+                    "train_validation": 0,
+                    "train_test": 0,
+                    "validation_test": 0
+                },
+                "no_exact_row_overlap": true
+            },
+            "time_order": {
+                "applicable": true,
+                "train": {
+                    "minimum": "2026-08-01T00:07:25",
+                    "maximum": "2026-10-02T12:26:35",
+                    "valid_timestamps": 2100
+                },
+                "validation": {
+                    "minimum": "2026-10-02T14:17:22",
+                    "maximum": "2026-10-17T01:59:58",
+                    "valid_timestamps": 450
+                },
+                "test": {
+                    "minimum": "2026-10-17T02:59:28",
+                    "maximum": "2026-10-29T22:15:33",
+                    "valid_timestamps": 450
+                },
+                "chronological_order_valid": true
+            }
+        },
+        "maintenance": {
+            "expected_records": 2000,
+            "actual_records": 2000,
+            "column_count": 7,
+            "columns": [
+                "equipment_id",
+                "equipment_type",
+                "operating_hours",
+                "temperature_c",
+                "vibration_mm_s",
+                "pressure_bar",
+                "fault_within_7_days"
+            ],
+            "missing_values": {
+                "equipment_id": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "equipment_type": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "operating_hours": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "temperature_c": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "vibration_mm_s": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "pressure_bar": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "fault_within_7_days": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                }
+            },
+            "total_missing_values": 0,
+            "exact_duplicate_rows": 0,
+            "class_balance": {
+                "0": {
+                    "count": 1225,
+                    "percentage": 61.25
+                },
+                "1": {
+                    "count": 775,
+                    "percentage": 38.75
+                }
+            },
+            "numerical_validation": {
+                "operating_hours_non_negative": {
+                    "passed": true
+                },
+                "vibration_non_negative": {
+                    "passed": true
+                },
+                "pressure_non_negative": {
+                    "passed": true
+                }
+            },
+            "splits": {
+                "train": {
+                    "records": 1400,
+                    "columns": 7,
+                    "missing_values": 0,
+                    "exact_duplicate_rows": 0,
+                    "class_balance": {
+                        "0": {
+                            "count": 858,
+                            "percentage": 61.286
+                        },
+                        "1": {
+                            "count": 542,
+                            "percentage": 38.714
+                        }
+                    }
+                },
+                "validation": {
+                    "records": 300,
+                    "columns": 7,
+                    "missing_values": 0,
+                    "exact_duplicate_rows": 0,
+                    "class_balance": {
+                        "0": {
+                            "count": 184,
+                            "percentage": 61.333
+                        },
+                        "1": {
+                            "count": 116,
+                            "percentage": 38.667
+                        }
+                    }
+                },
+                "test": {
+                    "records": 300,
+                    "columns": 7,
+                    "missing_values": 0,
+                    "exact_duplicate_rows": 0,
+                    "class_balance": {
+                        "0": {
+                            "count": 183,
+                            "percentage": 61.0
+                        },
+                        "1": {
+                            "count": 117,
+                            "percentage": 39.0
+                        }
+                    }
+                }
+            },
+            "split_total_records": 2000,
+            "split_count_matches_original": true,
+            "leakage_check": {
+                "overlap_counts": {
+                    "train_validation": 0,
+                    "train_test": 0,
+                    "validation_test": 0
+                },
+                "no_exact_row_overlap": true
+            },
+            "time_order": {
+                "applicable": false
+            }
+        },
+        "complaints": {
+            "expected_records": 1000,
+            "actual_records": 1000,
+            "column_count": 7,
+            "columns": [
+                "complaint_id",
+                "created_at",
+                "category",
+                "description",
+                "priority",
+                "resolution_hours",
+                "status"
+            ],
+            "missing_values": {
+                "complaint_id": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "created_at": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "category": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "description": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "priority": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "resolution_hours": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                },
+                "status": {
+                    "missing_count": 0,
+                    "missing_percentage": 0.0
+                }
+            },
+            "total_missing_values": 0,
+            "exact_duplicate_rows": 0,
+            "class_balance": {
+                "Electricity": {
+                    "count": 184,
+                    "percentage": 18.4
+                },
+                "Lift Breakdown": {
+                    "count": 172,
+                    "percentage": 17.2
+                },
+                "Security": {
+                    "count": 169,
+                    "percentage": 16.9
+                },
+                "Housekeeping": {
+                    "count": 168,
+                    "percentage": 16.8
+                },
+                "Water Leakage": {
+                    "count": 157,
+                    "percentage": 15.7
+                },
+                "Parking": {
+                    "count": 150,
+                    "percentage": 15.0
+                }
+            },
+            "numerical_validation": {
+                "resolution_hours_non_negative": {
+                    "passed": true
+                },
+                "complaint_categories_valid": {
+                    "passed": true
+                }
+            },
+            "splits": {
+                "train": {
+                    "records": 700,
+                    "columns": 7,
+                    "missing_values": 0,
+                    "exact_duplicate_rows": 0,
+                    "class_balance": {
+                        "Electricity": {
+                            "count": 129,
+                            "percentage": 18.429
+                        },
+                        "Lift Breakdown": {
+                            "count": 120,
+                            "percentage": 17.143
+                        },
+                        "Housekeeping": {
+                            "count": 118,
+                            "percentage": 16.857
+                        },
+                        "Security": {
+                            "count": 118,
+                            "percentage": 16.857
+                        },
+                        "Water Leakage": {
+                            "count": 110,
+                            "percentage": 15.714
+                        },
+                        "Parking": {
+                            "count": 105,
+                            "percentage": 15.0
+                        }
+                    }
+                },
+                "validation": {
+                    "records": 150,
+                    "columns": 7,
+                    "missing_values": 0,
+                    "exact_duplicate_rows": 0,
+                    "class_balance": {
+                        "Electricity": {
+                            "count": 27,
+                            "percentage": 18.0
+                        },
+                        "Security": {
+                            "count": 26,
+                            "percentage": 17.333
+                        },
+                        "Lift Breakdown": {
+                            "count": 26,
+                            "percentage": 17.333
+                        },
+                        "Housekeeping": {
+                            "count": 25,
+                            "percentage": 16.667
+                        },
+                        "Water Leakage": {
+                            "count": 24,
+                            "percentage": 16.0
+                        },
+                        "Parking": {
+                            "count": 22,
+                            "percentage": 14.667
+                        }
+                    }
+                },
+                "test": {
+                    "records": 150,
+                    "columns": 7,
+                    "missing_values": 0,
+                    "exact_duplicate_rows": 0,
+                    "class_balance": {
+                        "Electricity": {
+                            "count": 28,
+                            "percentage": 18.667
+                        },
+                        "Lift Breakdown": {
+                            "count": 26,
+                            "percentage": 17.333
+                        },
+                        "Security": {
+                            "count": 25,
+                            "percentage": 16.667
+                        },
+                        "Housekeeping": {
+                            "count": 25,
+                            "percentage": 16.667
+                        },
+                        "Parking": {
+                            "count": 23,
+                            "percentage": 15.333
+                        },
+                        "Water Leakage": {
+                            "count": 23,
+                            "percentage": 15.333
+                        }
+                    }
+                }
+            },
+            "split_total_records": 1000,
+            "split_count_matches_original": true,
+            "leakage_check": {
+                "overlap_counts": {
+                    "train_validation": 0,
+                    "train_test": 0,
+                    "validation_test": 0
+                },
+                "no_exact_row_overlap": true
+            },
+            "time_order": {
+                "applicable": false
+            }
+        }
+    },
+    "chatbot": {
+        "total_records": 300,
+        "category_balance": {
+            "water": 50,
+            "lift": 50,
+            "electricity": 50,
+            "parking": 50,
+            "security": 50,
+            "complaints": 50
+        },
+        "split_sizes": {
+            "train": {
+                "records": 210,
+                "unique_intents": 42
+            },
+            "validation": {
+                "records": 30,
+                "unique_intents": 6
+            },
+            "test": {
+                "records": 60,
+                "unique_intents": 12
+            }
+        },
+        "unique_canonical_intents": 60,
+        "intent_overlap": {
+            "train_validation": 0,
+            "train_test": 0,
+            "validation_test": 0
+        },
+        "record_structure_valid": true,
+        "no_intent_leakage": true,
+        "expected_split_sizes": {
+            "train": 210,
+            "validation": 30,
+            "test": 60
+        },
+        "split_sizes_match_expected": true
+    },
+    "overall_checks": {
+        "original_record_counts_valid": true,
+        "split_record_counts_valid": true,
+        "no_exact_row_leakage": true,
+        "no_missing_values": true,
+        "no_duplicate_rows": true,
+        "numerical_validation_passed": true,
+        "chronological_order_valid": true,
+        "chatbot_structure_valid": true,
+        "chatbot_no_intent_leakage": true,
+        "chatbot_split_sizes_valid": true
+    },
+    "warnings": [
+        "visitor: positive class represents only 4.06% of records. Use precision, recall, F1 and PR-AUC.",
+        "water: positive class represents only 3.30% of records. Use precision, recall, F1 and PR-AUC.",
+        "electricity: positive class represents only 3.23% of records. Use precision, recall, F1 and PR-AUC.",
+        "All operational data is synthetic. Chronological splitting does not establish realistic temporal forecasting performance.",
+        "Chatbot contains only 60 canonical intents and repetitive category-level answers. Results are experimental and not evidence of production quality."
+    ],
+    "errors": [],
+    "quality_status": "PASS_WITH_WARNINGS",
+    "publication_note": "This report evaluates entirely synthetic datasets for educational AI/ML experimentation."
+}
